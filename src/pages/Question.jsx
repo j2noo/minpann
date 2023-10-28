@@ -1,20 +1,36 @@
 import { useState } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import { currPageState } from "../atom";
 
 // eslint-disable-next-line react/prop-types
-const Question = ({answer}) => {
+const Question = ({ answer }) => {
+  const [currPage, setCurrPage] = useRecoilState(currPageState);
   const [inputValue, setInputValue] = useState();
-  const handleSubmit = () => {
-    inputValue;
-    alert(inputValue,"말고",answer,"을 입력하세요");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (inputValue == answer) {
+      alert("맞았습니다");
+      setInputValue("");
+      setCurrPage((curr) => curr + 1);
+    } else {
+      alert("틀렸습니다");
+    }
   };
   return (
     <StartLayout>
+      <div>현재 페이지 : {currPage} </div>
+      <br />
+      <div>정답 : {answer} </div>
+      <br />
+      <br />
+
       <InputForm onSubmit={handleSubmit}>
         <Input
           type="text"
           placeholder="답을 입력하세요"
           required
+          value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         ></Input>
         <InputButton type="submit"></InputButton>
@@ -29,6 +45,7 @@ const StartLayout = styled.div`
   background-size: cover;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;

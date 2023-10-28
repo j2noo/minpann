@@ -1,7 +1,6 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
-
-export const recruitCategoriesAtom = atom({
-  key: 'recruitCategories',
-  default: [true, true, true, true],
+export const currPageState = atom({
+  key: "currPage",
+  default: 0,
 });
