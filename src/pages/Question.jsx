@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { currPageState } from "../atom";
 
 // eslint-disable-next-line react/prop-types
-const Question = ({ answer }) => {
+const Question = ({ answer, bgSrc }) => {
   const [currPage, setCurrPage] = useRecoilState(currPageState);
   const [inputValue, setInputValue] = useState();
   const handleSubmit = (event) => {
@@ -18,7 +18,7 @@ const Question = ({ answer }) => {
     }
   };
   return (
-    <StartLayout>
+    <StartLayout $bgSrc={bgSrc}>
       <div>현재 페이지 : {currPage} </div>
       <br />
       <div>정답 : {answer} </div>
@@ -40,23 +40,39 @@ const Question = ({ answer }) => {
 };
 const StartLayout = styled.div`
   width: 100%;
-  height: 1000px;
-  background: url("assets/bg.png") no-repeat;
+  height: 844px;
+  overflow-y: scroll;
+  background: url(${(props) => props.$bgSrc}) no-repeat;
   background-size: cover;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 const InputForm = styled.form`
+  position: absolute;
+  bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%; /* Make the input form full width */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Add a semi-transparent background */
+  padding: 10px; /* Add some padding to separate it from the edge */
 `;
+
 const Input = styled.input`
   width: 80%;
   height: 50px;
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline */
 `;
+
 const InputButton = styled.input``;
 export default Question;
