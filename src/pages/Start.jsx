@@ -7,7 +7,7 @@ import img3 from "/assets/bg3.png";
 import img4 from "/assets/bg4.png";
 
 const Start = () => {
-  const answers = ["답1", "답2", "답3", "안녕"];
+  const answers = ["답1", "답2", "답3", "안녕s"];
   const imgSrcs = [img1, img2, img3, img4];
   const currPage = useRecoilValue(currPageState);
 
