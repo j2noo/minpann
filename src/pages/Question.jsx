@@ -19,12 +19,12 @@ const Question = ({ answer, bgSrc }) => {
   };
   return (
     <StartLayout $bgSrc={bgSrc}>
-      <div>현재 페이지 : {currPage} </div>
+      {/* <div>현재 페이지 : {currPage} </div>
       <br />
       <div>정답 : {answer} </div>
       <br />
-      <br />
-
+      <br /> */}
+      <BgImg src={bgSrc} />
       <InputForm onSubmit={handleSubmit}>
         <Input
           type="text"
@@ -42,15 +42,18 @@ const StartLayout = styled.div`
   width: 100%;
   height: auto;
   /* aspect-ratio: 300 / 1; */
-  overflow-y: scroll;
-  background: url(${(props) => props.$bgSrc}) no-repeat;
-  background-size: 100% auto;
+  /* overflow-y: scroll; */
+  /* background: url(${(props) => props.$bgSrc}) no-repeat;
+  background-size: 100%; */
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+`;
+const BgImg = styled.img`
+  width: 100%;
 `;
 const InputForm = styled.form`
   position: absolute;
