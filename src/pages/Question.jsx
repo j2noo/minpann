@@ -9,7 +9,7 @@ const Question = ({ answer, bgSrc }) => {
   const [inputValue, setInputValue] = useState();
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (inputValue == answer) {
+    if (inputValue.toLowerCase() == answer) {
       alert("정답입니다!");
       setInputValue("");
       setCurrPage((curr) => curr + 1);
