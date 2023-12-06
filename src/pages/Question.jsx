@@ -40,10 +40,11 @@ const Question = ({ answer, bgSrc }) => {
 };
 const StartLayout = styled.div`
   width: 100%;
-  height: 844px;
+  height: auto;
+  /* aspect-ratio: 300 / 1; */
   overflow-y: scroll;
   background: url(${(props) => props.$bgSrc}) no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
 
   display: flex;
   flex-direction: column;

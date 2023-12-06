@@ -10,7 +10,6 @@ function Router() {
       <Header />
       <Routes>
         <Route path="/" element={<Start />} />
-        <Route path="/login" element={<div>login</div>} />
       </Routes>
     </BrowserRouter>
   );

@@ -15,6 +15,7 @@ import img11 from "/assets/11.png";
 import img12 from "/assets/12.png";
 import img13 from "/assets/13.png";
 import last from "/assets/last.png";
+import styled from "styled-components";
 
 const Start = () => {
   const answers = [
@@ -57,7 +58,9 @@ const Start = () => {
     content = <div>종료 페이지</div>;
   }
 
-  return <div>{content}</div>;
+  return <Layout>{content}</Layout>;
 };
-
+const Layout = styled.div`
+  width: 100%;
+`;
 export default Start;
