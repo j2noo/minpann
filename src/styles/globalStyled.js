@@ -140,6 +140,8 @@ const GlobalStyle = createGlobalStyle`
 
   }
 
+
+  
   ol,
   ul {
     list-style: none;

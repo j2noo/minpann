@@ -63,6 +63,8 @@ const Start = () => {
 };
 const Layout = styled.div`
   width: 100%;
+  max-width: 500px;
+  margin: auto;
 `;
 const BgImg = styled.img`
   width: 100%;
