@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Start from "./pages/Start";
 
 function Router() {
@@ -7,7 +7,7 @@ function Router() {
 
   return (
     <BrowserRouter>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Start />} />
       </Routes>

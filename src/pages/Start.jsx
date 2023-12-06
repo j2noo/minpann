@@ -1,6 +1,8 @@
 import { useRecoilValue } from "recoil";
 import { currPageState } from "../atom";
 import Question from "./Question";
+import styled from "styled-components";
+
 import img1 from "/assets/1.png";
 import img2 from "/assets/2.png";
 import img3 from "/assets/3.png";
@@ -15,7 +17,6 @@ import img11 from "/assets/11.png";
 import img12 from "/assets/12.png";
 import img13 from "/assets/13.png";
 import last from "/assets/last.png";
-import styled from "styled-components";
 
 const Start = () => {
   const answers = [
@@ -55,12 +56,15 @@ const Start = () => {
   if (currPage < answers.length) {
     content = <Question answer={answers[currPage]} bgSrc={imgSrcs[currPage]} />;
   } else {
-    content = <div>종료 페이지</div>;
+    content = <BgImg src={last}></BgImg>;
   }
 
   return <Layout>{content}</Layout>;
 };
 const Layout = styled.div`
+  width: 100%;
+`;
+const BgImg = styled.img`
   width: 100%;
 `;
 export default Start;

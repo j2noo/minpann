@@ -1,29 +1,24 @@
 import { useState } from "react";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { currPageState } from "../atom";
 
 // eslint-disable-next-line react/prop-types
 const Question = ({ answer, bgSrc }) => {
-  const [currPage, setCurrPage] = useRecoilState(currPageState);
+  const setCurrPage = useSetRecoilState(currPageState);
   const [inputValue, setInputValue] = useState();
   const handleSubmit = (event) => {
     event.preventDefault();
     if (inputValue == answer) {
-      alert("맞았습니다");
+      alert("정답입니다!");
       setInputValue("");
       setCurrPage((curr) => curr + 1);
     } else {
-      alert("틀렸습니다");
+      alert("정답이 아닙니다!");
     }
   };
   return (
     <StartLayout $bgSrc={bgSrc}>
-      {/* <div>현재 페이지 : {currPage} </div>
-      <br />
-      <div>정답 : {answer} </div>
-      <br />
-      <br /> */}
       <BgImg src={bgSrc} />
       <InputForm onSubmit={handleSubmit}>
         <Input
@@ -33,7 +28,7 @@ const Question = ({ answer, bgSrc }) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         ></Input>
-        <InputButton type="submit"></InputButton>
+        <InputButton type="submit" value={"정답 확인"}></InputButton>
       </InputForm>
     </StartLayout>
   );
@@ -57,26 +52,34 @@ const BgImg = styled.img`
 `;
 const InputForm = styled.form`
   position: absolute;
+  width: 100%; /* Make the input form full width */
   bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Make the input form full width */
+  gap: 10px;
+
   background-color: rgba(
     255,
     255,
     255,
     0.8
   ); /* Add a semi-transparent background */
-  padding: 10px; /* Add some padding to separate it from the edge */
+  padding: 15px 10px;
+
+  /* background-color: rgb(45, 61, 134); */
 `;
 
 const Input = styled.input`
   width: 80%;
   height: 50px;
-  border: none; /* Remove the border */
+  border: none;
+  border-radius: 5px;
   outline: none; /* Remove the outline */
+  padding: 0 10px;
 `;
 
-const InputButton = styled.input``;
+const InputButton = styled.input`
+  padding: 5px;
+`;
 export default Question;
